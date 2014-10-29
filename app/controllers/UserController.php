@@ -62,7 +62,7 @@ class UserController extends BaseController{
             return Redirect::route('edit_user', $id)->withErrors($validation);
         }
         else{
-            $user  = event::find($id);
+            $user  = User::find($id);
             $user->name = Input::get('name');
             $user->surname = Input::get('surname');
             $user->email = Input::get('email');
@@ -79,7 +79,7 @@ class UserController extends BaseController{
     }
     public function destroy(){
        $id = Input::get('id');
-       $user = event::find($id);
+       $user = User::find($id);
        $name = $user->name;
        $user->delete();
 
