@@ -73,7 +73,7 @@ class EventController extends BaseController{
             return Redirect::route('edit_user', $id)->withErrors($validation);
         }
         else{
-            $user  = User::find($id);
+            $user  = event::find($id);
             $user->name = Input::get('name');
             $user->surname = Input::get('surname');
             $user->email = Input::get('email');
@@ -90,7 +90,7 @@ class EventController extends BaseController{
     }
     public function destroy(){
         $id = Input::get('id');
-        $user = User::find($id);
+        $user = event::find($id);
         $name = $user->name;
         $user->delete();
 
